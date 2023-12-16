@@ -33,7 +33,7 @@ st.markdown("---")
 col1, col2 = st.columns([5, 95]) ### 5:95 ratio for padding
 with col2:
     ### Step 1-1 : Select Music
-    st.subheader("Step 1-1: Select Music to apply your voice")
+    st.subheader("Step 1-1: Select Music to Apply Your Voice")
     st.write("Please select a Song from the dropdown list below: ")
 
     if 'json_available_music' not in st.session_state:
@@ -158,8 +158,8 @@ st.markdown("---")
 col1, col2 = st.columns([5, 95]) ### 5:95 ratio for padding
 with col2:
     ### Step 2-1 : Select Music
-    st.subheader("Step 2-1: Select User ID to apply.")
-    st.write("Please select an User ID from the dropdown list below: ")
+    st.subheader("Step 2-1: Select Voice to Apply.")
+    st.write("Please select an Voice ID from the dropdown list below: ")
 
     if 'json_available_user' not in st.session_state:
         st.session_state['json_available_user'] = []
@@ -201,7 +201,7 @@ st.markdown("---")
 col1, col2 = st.columns([5, 95]) ### 5:95 ratio for padding
 with col2:
     ### Step 2-2 : Select Music
-    st.subheader("Step 2-2: Select Music to apply your voice")
+    st.subheader("Step 2-2: Start Model Training")
     st.write("Please press the button below to train RVC model with your voice. <br>This process will take up to 10 minutes.", unsafe_allow_html=True)
 
     if st.button("START TRAINING"):
@@ -344,7 +344,7 @@ if 'step3_button_pushed' in st.session_state:
 
 ### Step 4: Combine
 st.markdown('<hr style="border:1px solid">', unsafe_allow_html=True)
-st.header("✅ Step 4: Combine")
+st.header("✅ Step 4: Merge Vocal & Instrumental")
 st.markdown("---")
 
 col1, col2 = st.columns([5, 95]) ### 5:95 ratio for padding
@@ -352,7 +352,7 @@ with col2:
 
     st.write("Please press the button below to Combine the converted vocal file and the instrumental file <br>This process will take up to 3 minutes.", unsafe_allow_html=True)
 
-    if st.button("COMBINE"):
+    if st.button("MERGE"):
         response = requests.post(
             url = "https://cn7qctd66b.execute-api.ap-northeast-2.amazonaws.com/singtome/vocal-mr-merge",
             data = json.dumps ({"song_id": selected_song_id, "user_id": selected_user_id}),
